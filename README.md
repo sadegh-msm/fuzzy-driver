@@ -1,67 +1,52 @@
 # fuzzy-driver
 > self driving car with fuzzy logic
 
-Certainly! Here's an example README.md file that provides an overview of the code and instructions on how to use it:
+# Self-Driving Car with Fuzzy Logic
 
-# Fuzzy Logic Controllers
+This repository contains a project that implements a self-driving car using fuzzy logic principles. The self-driving car utilizes sensors to perceive the environment, applies fuzzy logic to make decisions, and controls the car's actions accordingly.
 
-This repository contains two fuzzy logic controllers implemented in Python: `FuzzyController` and `FuzzyGasController`. These controllers use fuzzy logic principles to make decisions based on input variables and predefined fuzzy sets.
+## Project Overview
 
-## FuzzyController
+The self-driving car project consists of the following components:
 
-The `FuzzyController` class implements a fuzzy logic controller for rotation control based on left and right distances. It follows the following steps:
+1. **Sensor Inputs**: The car is equipped with various sensors, such as distance sensors, camera sensors, and speed sensors. These sensors provide information about the car's surroundings and current state.
 
-1. **Fuzzification**: The `fuzzify` method calculates the membership values of the left and right distances in different fuzzy sets (`close_L`, `close_R`, `moderate_L`, `moderate_R`, `far_L`, and `far_R`).
-2. **Inference**: The `inference` method combines the fuzzy sets obtained from fuzzification and determines the degrees of membership for different output sets (`low_right`, `high_right`, `low_left`, `high_left`, and `nothing`).
-3. **Defuzzification**: The `defuzzify` method calculates the center of gravity of the fuzzy output set by evaluating the membership values of different rotation angles. It returns the defuzzified value, representing the final decision of the fuzzy controller.
-4. **Decide**: The `decide` method serves as the entry point for the fuzzy controller. It takes the left and right distances as inputs, performs fuzzification, inference, and defuzzification steps, and returns the final decision (defuzzified value) of the fuzzy controller.
+2. **Fuzzy Logic Controllers**: The project utilizes fuzzy logic controllers to make decisions based on the sensor inputs. Fuzzy logic enables the car to handle uncertainty and imprecise information effectively.
 
-## FuzzyGasController
+3. **Decision Making**: The fuzzy logic controllers analyze the sensor inputs and generate appropriate decisions for the car. The decisions can include actions like accelerating, braking, steering, or changing lanes.
 
-The `FuzzyGasController` class implements a fuzzy logic controller for gas control based on the center distance. It follows a similar structure to the `FuzzyController` class but with different membership functions and rules. Here are the steps:
+4. **Control System**: The control system of the self-driving car translates the decisions made by the fuzzy logic controllers into actual control signals for the car's actuators. These control signals determine how the car should maneuver and interact with its environment.
 
-1. **Fuzzification**: The `fuzzify` method calculates the membership values of the center distance in different fuzzy sets (`close`, `moderate`, and `far`).
-2. **Inference**: The `inference` method combines the fuzzy sets obtained from fuzzification and determines the degrees of membership for different output sets (`low`, `medium`, and `high`).
-3. **Defuzzification**: The `defuzzify` method calculates the center of gravity of the fuzzy output set by evaluating the membership values of different speed levels. It returns the defuzzified value, representing the final decision of the fuzzy controller.
-4. **Decide**: The `decide` method serves as the entry point for the fuzzy controller. It takes the center distance as input, performs fuzzification, inference, and defuzzification steps, and returns the final decision (defuzzified value) of the fuzzy controller.
+## Fuzzy Logic Controllers
+
+The fuzzy logic controllers used in this project are designed to handle specific aspects of the self-driving car's behavior. Some example fuzzy logic controllers might include:
+
+- **Obstacle Detection**: This controller analyzes distance sensor inputs to detect obstacles in the car's path. It uses fuzzy sets to determine the degree of danger posed by the obstacle and decides whether to stop, slow down, or change lanes.
+
+- **Lane Keeping**: This controller uses camera sensor inputs to detect lane markings and ensure the car stays within the designated lanes. It employs fuzzy logic to determine the required steering angle to keep the car centered within the lane.
+
+- **Speed Control**: This controller utilizes speed sensor inputs to regulate the car's speed based on the road conditions and surrounding traffic. It adjusts the acceleration and braking based on fuzzy rules to maintain a safe and comfortable speed.
 
 ## Usage
 
-To use the fuzzy logic controllers in your project, follow these steps:
+To use the self-driving car project, follow these steps:
 
-1. Import the necessary modules:
+1. Set up the necessary hardware components, including sensors and actuators, to enable communication between the car and the control system.
 
-```python
-import numpy as np
-```
+2. Implement the fuzzy logic controllers based on your specific requirements. Customize the membership functions, fuzzy rules, and defuzzification methods to suit your project's needs.
 
-2. Instantiate a `FuzzyController` or `FuzzyGasController` object:
+3. Connect the sensor inputs to the fuzzy logic controllers and design the decision-making process. Determine the appropriate control actions based on the sensor inputs and fuzzy logic analysis.
 
-```python
-controller = FuzzyController()  # or FuzzyGasController()
-```
+4. Implement the control system to receive the decisions from the fuzzy logic controllers and generate control signals for the car's actuators. Ensure the control system is capable of translating the decisions into proper car movements.
 
-3. Call the `decide` method, providing the required input values:
+5. Test the self-driving car in a controlled environment, such as a closed track or simulation, to observe its behavior and make adjustments as needed. Continuously refine the fuzzy logic controllers and control system to improve the car's performance.
 
-```python
-decision = controller.decide(left_dist, right_dist)  # or center_dist
-```
+## License
 
-4. The `decision` variable will hold the final decision (defuzzified value) of the fuzzy controller.
+This project is provided under the [MIT License](LICENSE).
 
-Make sure to update the input variables (`left_dist`, `right_dist`, `center_dist`) with appropriate values based on your specific scenario.
+Feel free to modify and adapt the code and concepts according to your needs.
 
-## Example
+If you encounter any issues or have suggestions for improvement, please open an issue or submit a pull request.
 
-Here's a simple example demonstrating the usage of the `FuzzyController`:
-
-```python
-controller = FuzzyController()
-left_dist = 40
-right_dist = 55
-decision = controller.decide(left_dist, right_dist)
-print(f"The rotation decision is: {decision}")
-```
-
-This will output the rotation decision based on the provided left and right distances.
-
+Enjoy exploring the world of self-driving cars with fuzzy logic!

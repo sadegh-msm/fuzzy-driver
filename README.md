@@ -41,12 +41,3 @@ To use the self-driving car project, follow these steps:
 
 5. Test the self-driving car in a controlled environment, such as a closed track or simulation, to observe its behavior and make adjustments as needed. Continuously refine the fuzzy logic controllers and control system to improve the car's performance.
 
-## License
-
-This project is provided under the [MIT License](LICENSE).
-
-Feel free to modify and adapt the code and concepts according to your needs.
-
-If you encounter any issues or have suggestions for improvement, please open an issue or submit a pull request.
-
-Enjoy exploring the world of self-driving cars with fuzzy logic!
